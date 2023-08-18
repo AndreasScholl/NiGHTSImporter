@@ -48,6 +48,7 @@ public class Importer : MonoBehaviour
 
         List<GameObject> models = new List<GameObject>();
 
+        models.Add(MissionLoader.LoadCommon());
         models.Add(MissionLoader.LoadRd1_SpringValley());
         models.Add(MissionLoader.LoadRd1_GillwingBoss());
         models.Add(MissionLoader.LoadRd2_FrozenBell());

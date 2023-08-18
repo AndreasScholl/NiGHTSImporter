@@ -9,6 +9,28 @@ public class MissionLoader
     const int _vdpTable = 0x060ED000;
     private static string _textureFolder = "";
 
+    public static GameObject LoadCommon()
+    {
+        _textureFolder = "common";
+        Directory.CreateDirectory("textures/" + _textureFolder);
+
+        LoadGroundTextures(0x060516BC, 0x06051715);
+
+        LoadFile(0x06051437, 0x25A0A000);
+        LoadFile(0x060514F2, 0x00200000);
+        LoadFile(0x06051761, 0x060B0000);
+        LoadFile(0x06051686, 0x06080000);
+        int size = LoadFile(0x0605154C, 0x06080000);
+        LoadFile(0x0605159C, 0x00270000);
+        LoadFile(0x06051556, 0x06098000);
+        LoadFile(0x060515A5, 0x00200010);
+
+        LoadTextures(0x060B4174, 0x060ED6A0);
+        LoadTextures(0x060B4180, 0x060EE9A8);
+
+        return ImportModels(0x06080000, size);
+    }
+
     public static GameObject LoadRd1_SpringValley()
     {
         _textureFolder = "rd1_springvalley";
